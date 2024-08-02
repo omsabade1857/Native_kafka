@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "javaType": "com.in.dto.Car",
+  "properties": {
+    "carId": {
+      "type": "string",
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "default": null
+    },
+    "type": {
+      "type": "string",
+      "default": null
+    },
+    "price": {
+      "type": "double",
+      "default": 0.0
+    }
+  },
+  "required": ["carId", "name", "type","price"]
+}

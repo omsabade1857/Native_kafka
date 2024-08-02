@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "javaType": "com.in.dto.User",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "default": null
+    },
+    "firstName": {
+      "type": "string",
+      "default": null
+    },
+    "lastName": {
+      "type": "string",
+      "default": null
+    },
+    "email": {
+      "type": "string",
+      "default": null
+    },
+    "carId": {
+      "type": "string",
+      "default": null
+    }
+  },
+  "required": ["userId", "firstName", "lastName", "email","carId"]
+}

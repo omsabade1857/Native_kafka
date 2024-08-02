@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: 192.168.99.223:19092
+    streams:
+      application-id: Car_User_app
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        schema.registry.url: http://192.168.99.223:18081
+    consumer:
+      group-id: consumer_group
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        schema.registry.url: http://192.168.99.223:18081
+        specific.avro.reader: true
+        spring.kafka.consumer.value.deserializer.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        spring.kafka.consumer.value.deserializer.spring.deserializer.value.default.type: com.in.dto.Employee
+
+logging:
+  level:
+    org.apache.kafka: ERROR
+    kafka: ERROR
+    io.confluent.kafka.serializers: ERROR
+    io.confluent.kafka.schemaregistry: ERROR
+    io.confluent.kafka.schemaregistry.client: ERROR
+    io.confluent.kafka.schemaregistry.client.rest: ERROR

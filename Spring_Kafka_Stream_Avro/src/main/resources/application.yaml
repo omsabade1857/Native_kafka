@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  kafka:
+    bootstrap-servers: 192.168.99.223:19092
+    streams:
+      application-id: Spring_kafka_app
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        schema.registry.url: http://192.168.99.223:18081
+    consumer:
+      group-id: consumer04_group
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        schema.registry.url: http://192.168.99.223:18081
+        specific.avro.reader: true
+        spring.kafka.consumer.value.deserializer.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        spring.kafka.consumer.value.deserializer.spring.deserializer.value.default.type: com.in.dto.Employee
+
+#logging:
+#  level:
+#    org.apache.kafka: DEBUG
+#    org.springframework.kafka: DEBUG

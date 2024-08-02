@@ -1,0 +1,27 @@
+{
+  "namespace": "com.in.dto",
+  "type": "record",
+  "name": "Car",
+  "fields": [
+    {
+      "name": "carId",
+      "type": "int"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "model",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    },
+	{
+	  "name": "userId",
+	  "type": "int"
+	}
+  ]
+}
